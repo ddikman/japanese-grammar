@@ -1,0 +1,19 @@
+{
+  "exercise": "Making suggestions based on supposition",
+  "type": "translate-to-english",
+  "guide": "Read the dialogues while paying attention to the uses of なら.",
+  "questions": [
+    {
+      "guide": "A:新しいパソコンを買おうと思っているんですが。\nB:新しいパソコン買うなら、のぞみ電気がいいですよ。定員がとても親切です。",
+      "answer": "A: I'm thinking of buying a new computer.\nB:If you're going to buy a new computer, I recommend Nozomi Electronics. The staff is very friendly."
+    },
+    {
+      "guide": "A:大阪のホテルを予約したいんですが。\nB:ホテルの予約をするなら、インターネットを使えば簡単ですよ。",
+      "answer": "A:I want to book a hotel in Osaka.\nB:If you want to book a hotel, it will be easy if you do it on the internet."
+    },
+    {
+      "guide": "A:大学をそつぎょうしたら、IT関係の仕事をしていたんです。\nB:IT関係の仕事をしたいなら,ITの仕事をしてる友人をしょうかいしましょう。",
+      "answer": "A:I want to work in IT once I graduate college.\nB:If you want to work in IT, I'll introduce you to a friend who has an IT job."
+    }
+  ]
+}

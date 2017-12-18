@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: npm run live-reload
+    volumes:
+      - .:/usr/app/
+    ports:
+      - "8080:80"
+    environment:
+      APP_PORT: 80

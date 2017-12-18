@@ -1,0 +1,35 @@
+//- layout.pug
+include ./loader.pug
+html
+	head
+		title #{title} - Training Japanese
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css', crossorigin='anonymous')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+		link(rel='stylesheet', href='/css/loader.css')
+		script(src='/js/wanakana.min.js')
+	body
+		nav.navbar.navbar-inverse.navbar-fixed-top
+			.container
+				.navbar-header
+					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#') Project name
+				#navbar.navbar-collapse.collapse
+					form.navbar-form.navbar-right
+						.form-group
+							input.form-control(type='text', placeholder='Email')
+						.form-group
+							input.form-control(type='password', placeholder='Password')
+						button.btn.btn-success(type='submit') Sign in
+		block jumbotron
+		.container
+			block content
+			hr
+			footer
+				p © 2016 Company, Inc.
+		block script

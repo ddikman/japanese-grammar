@@ -1,0 +1,74 @@
+//- grammar.pug
+extends layout.pug
+
+block content
+	.jumbotron
+		h1 Okay, let's test some grammar then!
+		.grammar-form
+			p#question-description
+				| Question description
+			form#question-form
+				.row
+					label#question-title Question title
+				.row
+					.input-group
+						input#answer.form-control(type='text', placeholder='type answer...',autocomplete='off')
+						span.input-group-btn
+							button#submit.btn.btn-secondary(type='button') answer!
+		+loader-container
+
+block script
+	script.
+		function grammarForm() {
+			return $('.grammar-form');
+		}
+
+		function loader() {
+			return $('.loader');
+		}
+		
+		function answerField() {
+			return $('#answer');
+		}
+
+		$('#question-form').submit(function(){
+			nextQuestion();
+			answerField().val('');
+			return false;
+		});
+
+		const time = 150;
+
+		var hide = function(element, callback) {
+			element.fadeTo(time, 0, callback);
+		}
+
+		var show = function(element, callback) {
+			element.fadeTo(time, 1, callback);
+		}
+
+		var changeText = function(element, text) {
+			if (element.text() == text) {
+				return;
+			}
+			hide(element, function () {
+				element.text(text);
+				show(element);
+			});
+		}
+
+		wanakana.bind(answerField()[0]);
+
+		nextQuestion = function() {
+			show(loader());
+			$.getJSON('/grammar/next-question', function (data) {
+				console.log('got data: ' + JSON.stringify(data));
+				hide(loader(), function done() {
+					changeText($('#question-description'), data.questionDescription);
+					changeText($('#question-title'), data.questionTitle);
+					answerField().focus();
+				});
+			});
+		}
+
+		nextQuestion();
