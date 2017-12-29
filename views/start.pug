@@ -1,0 +1,14 @@
+//- index.pug
+extends layout.pug
+
+block content
+	.container
+		.section.teal-text
+			h2.header Start
+			| New to this? That's okay, just pick an exercise and get started:
+			div.collection
+				each exercise in exercises
+					a.collection-item.avatar(href='/exercise/' + exercise.id)
+						img.circle(src='exercise_icon.png')
+						span.title= exercise.name
+						p= exercise.description
