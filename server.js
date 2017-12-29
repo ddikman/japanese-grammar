@@ -14,9 +14,25 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.use(express.static('public'))
+app.get('/about', function (req, res) {
+  res.render('about', { })
+});
+
+app.get('/start', function (req, res) {
+
+  var exercises = [
+    { 
+      name: 'Exercise 1',
+      id: 'exercise-1',
+      description: 'do some exercise stuff'
+    }
+  ]
+
+  res.render('start', { exercises: exercises })
+});
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!' })
+  res.render('index', { })
 });
 
 var sample = function(items) {
