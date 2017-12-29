@@ -1,32 +1,19 @@
 //- index.pug
 extends layout.pug
 
-block jumbotron
-	.jumbotron
-		.container
-			h1 Japanese training
-			p
-				| So I think we're getting there now.
-			p
-				a.btn.btn-primary.btn-lg(href='#', role='button') Learn more »
-
 block content
-	.row
-		.col-md-4
-			h2 Grammar! 文法！
-			p
-				| Start running easy grammatical tests.
-			p
-				a.btn.btn-default(href='/grammar', role='button') View details »
-		.col-md-4
-			h2 Heading
-			p
-				| Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			p
-				a.btn.btn-default(href='#', role='button') View details »
-		.col-md-4
-			h2 Heading
-			p
-				| Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-			p
-				a.btn.btn-default(href='#', role='button') View details »
+	#index-banner.parallax-container
+		.section.no-pad-bot
+			.container
+				br
+				br
+				h1.header.center.light
+					span.shadow-header Learning Japanese
+				.row.center
+					h5.shadow-header.header.col.s12.light Exercises to get your Japanese on.
+				.row.center
+					a#download-button.btn-large.waves-effect.waves-light.teal(href='http://materializecss.com/getting-started.html') Get Started
+				br
+				br
+		.parallax
+			img(src='backdrop.jpg', alt='Arashiyama, Kyoto', style='width: 100%; display: block;')
