@@ -20,3 +20,6 @@ docker-compose up
 2. ExpressJs
 3. Nodemon
 4. https://codepen.io/jackrugile/pen/JddmaX
+
+# dependencies
+1. [standard](link) for ensuring consistent code style and best practices
