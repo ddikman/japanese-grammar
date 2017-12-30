@@ -19,6 +19,11 @@ class Exercises {
         name: 'Exercise 1',
         id: 'exercise-1',
         description: 'do some exercise stuff'
+      },
+      {
+        name: 'Exercise 2',
+        id: 'exercise-2',
+        description: 'do some other exercise stuff'
       }
     ]
   }
