@@ -1,16 +1,16 @@
-const NotFound = require('./notFound')
+var NotFound = require('./notFound')
 
 class Exercises {
-  load (id) {
+  load (id, callback) {
     var exercise = this.list().find(function (item) {
       return item.id === id
     })
 
     if (!exercise) {
-      throw new NotFound()
+      throw new NotFound(`Exercise with id [${id}]`)
     };
 
-    return exercise
+     return exercise
   }
 
   list () {

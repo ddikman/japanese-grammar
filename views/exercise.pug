@@ -4,5 +4,7 @@ extends layout.pug
 block content
 	.container
 		.section.teal-text
-			h2.header= id
+			h2.header= exercise.id
 			| This is the exercise you've chosen
+
+			span= exercise.description

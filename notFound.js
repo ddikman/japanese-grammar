@@ -1,8 +1,8 @@
 
-function NotFound(msg){
-  this.name = 'NotFound';
-  Error.call(this, msg);
-  Error.captureStackTrace(this, arguments.callee);
+class NotFound extends Error {
+  constructor(message) {
+    super(message)
+  }
 }
 
-NotFound.prototype.__proto__ = Error.prototype;
+module.exports = NotFound;

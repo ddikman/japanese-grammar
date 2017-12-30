@@ -34,7 +34,17 @@ var sample = function (items) {
 }
 
 app.get('/exercise/:exerciseId', function (req, res) {
-  res.render('exercise', { id: req.params.exerciseId })
+  try {
+    var exercise = exercises.load(req.params.exerciseId)
+    res.render('exercise', { exercise: exercise })
+  }
+  catch(e) {
+    if (e instanceof NotFound) {
+      res.status(404);
+      res.render('error', { status: 404, message: "Terribly sorry but it seems as though there isn't any exercise like what you were looking for." })
+    }
+    throw e;
+  }
 })
 
 app.get('/grammar/next-question', function (req, res) {
