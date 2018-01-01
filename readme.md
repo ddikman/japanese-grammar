@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ddikman/japanese-grammar.svg?branch=master)](https://travis-ci.org/ddikman/japanese-grammar)
+
 # build it
 
 ```bash
