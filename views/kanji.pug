@@ -1,0 +1,12 @@
+//- grammar.pug
+extends layout.pug
+
+block content
+	.container
+		.section
+			h1 Kanji overview
+			
+			each lesson in kanji.lessons
+				h2= lesson.name
+				each character in lesson.kanji
+					a.waves-effect.waves-light.btn(href='/kanji/' + character, style='margin: 5px')= character

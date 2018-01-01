@@ -1,0 +1,40 @@
+//- grammar.pug
+extends layout.pug
+
+block content
+	.container
+		.section
+			a(href='/kanji') Back...
+			h1= 'Kanji details for ' + character
+			
+			img(src=strokes)
+
+			table
+				tr
+					th onyomi
+					th kunyomi
+				tr
+					td= onyomi.readings
+					td= kunyomi.readings
+
+			table
+				tr
+					th kanji
+					th reading
+					th meaning
+				each example in kunyomi.examples
+					tr
+						td= example.example
+						td= example.reading
+						td= example.meaning
+
+			table
+				tr
+					th kanji
+					th reading
+					th meaning
+				each example in onyomi.examples
+					tr
+						td= example.example
+						td= example.reading
+						td= example.meaning

@@ -2,6 +2,9 @@
 
 const express = require('express')
 const fs = require('fs')
+const JishoApi = require('unofficial-jisho-api')
+const util = require('util');
+const jisho = new JishoApi();
 
 const NotFound = require('./notFound')
 const exercises = require('./exercises')
@@ -64,6 +67,35 @@ app.get('/grammar/next-question', function (req, res) {
 
 app.get('/grammar', function (req, res) {
   res.render('grammar')
+})
+
+app.get('/kanji/:kanji', function(req, res) {
+  var kanji = req.params.kanji
+  jisho.searchForKanji(kanji).then(result => {
+    res.render('kanji-details', {
+      character: kanji,
+      meaning: result.meaning,
+      kunyomi: {
+        readings: result.kunyomi,
+        examples: result.kunyomiExamples
+      },
+      onyomi: {
+        readings: result.onyomi,
+        examples: result.onyomiExamples
+      },
+      strokes: result.strokeOrderDiagramUri
+    })
+  })
+})
+
+app.get('/kanji', function (req, res) {
+  fs.readFile('./kanji.json', 'utf8', function (err, data) {
+    if (err) {
+      throw new NotFound(err)
+    }
+    var kanji = JSON.parse(data);
+    res.render('kanji', { kanji: kanji })
+  })
 })
 
 app.listen(PORT, HOST)
